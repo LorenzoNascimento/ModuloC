@@ -165,3 +165,63 @@ insert into games_que_gosto values
 (default, 'Minecraft', 'PC', 'Sobrevivencia', 'Microsoft', '2011');
 
 select * from games_que_gosto;
+
+
+-- AULA 15
+
+select * from antiquario;
+
+select * from antiquario
+where categoria like 'V%';
+
+select * from antiquario
+order by categoria desc;
+
+select * from antiquario
+where id = '4';
+
+select * from antiquario
+where ano < 2016;
+
+select * from antiquario
+where quantidade <= 20;
+
+select * from antiquario
+where quantidade between 10 and 30;
+
+select * from antiquario
+where ano between 1910 and 1940;
+
+select categoria, ano from antiquario
+where ano in('1910', '1940') or ('1930');
+
+select * from antiquario
+where ano < 1940 || quantidade < 50;
+
+insert into professores values 
+(default, 'Maria', 'Ciencias', '1100'),
+(default, 'Maria Lucia', 'Matematica', '1300'),
+(default, 'Maria Lucilane', 'Português', '1300');
+
+select * from professores;
+
+select * from professores
+where nome like 'Maria%';
+
+select * from alunos;
+
+update alunos
+set email = 'geraldo@gmail.com'
+where id = '6';
+
+insert into alunos values
+(default, 'Geraldo', '2000-07-17', '1B', 'geraldo@gmail.com');
+
+select count(*) from alunos
+where id;
+
+select max(salario) from professores;
+
+select min(salario) from professores;
+
+select avg(salario) from professores;
