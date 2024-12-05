@@ -8,12 +8,12 @@ public class FiguraMain {
 
     public static void main(String[] args) {
 
-        Quadrado q = new Quadrado();
-        q.getArea();
-        q.getPerimetro();
-
-        Circulo c = new Circulo();
-        c.getArea();
-        c.getPerimetro();
+//        Quadrado q = new Quadrado();
+//        q.getArea();
+//        q.getPerimetro();
+//
+//        Circulo c = new Circulo();
+//        c.getArea();
+//        c.getPerimetro();
     }
 }

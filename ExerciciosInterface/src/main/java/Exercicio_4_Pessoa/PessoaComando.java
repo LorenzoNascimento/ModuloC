@@ -6,7 +6,7 @@ package Exercicio_4_Pessoa;
  */
 public class PessoaComando {
 
-    public class PessoaComando 
+//    public class PessoaComando 
     private int nome;    
     private int idade;
 
