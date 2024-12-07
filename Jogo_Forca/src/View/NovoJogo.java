@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
+
+import com.mysql.cj.xdevapi.Statement;
+import com.sun.jdi.connect.spi.Connection;
+import javax.swing.JOptionPane;
+import java.sql.DriverManager;
 
 /**
  *
@@ -28,7 +29,7 @@ public class NovoJogo extends javax.swing.JFrame {
 
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
-        txtNovoJogo = new javax.swing.JTextField();
+        txtPalavra = new javax.swing.JTextField();
         lblNovoJogo = new javax.swing.JLabel();
         btnConfirmarPalavra = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
@@ -39,9 +40,9 @@ public class NovoJogo extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(187, 187, 187));
 
-        txtNovoJogo.addActionListener(new java.awt.event.ActionListener() {
+        txtPalavra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNovoJogoActionPerformed(evt);
+                txtPalavraActionPerformed(evt);
             }
         });
 
@@ -72,7 +73,7 @@ public class NovoJogo extends javax.swing.JFrame {
                 .addGap(150, 150, 150)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNovoJogo)
-                    .addComponent(txtNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -87,7 +88,7 @@ public class NovoJogo extends javax.swing.JFrame {
                 .addGap(105, 105, 105)
                 .addComponent(lblNovoJogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(38, 38, 38)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConfirmarPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,12 +110,24 @@ public class NovoJogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNovoJogoActionPerformed
+    private void txtPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPalavraActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNovoJogoActionPerformed
+    }//GEN-LAST:event_txtPalavraActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
-        
+//        try{
+//        Connection conn;
+//        Statement st;
+//        Class.forName("com.mysql.jdbc.Driver");
+//        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/forca", "root","");
+//        st = conn.createStatement();
+//        executeUpdate("INSERT INTO forcapalavras VALUES(id,''" + txtPalavra.getText());
+//        JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso");
+//        }catch(ClassNotFoundException ex) {
+//            JOptionPane.showMessageDialog(null,"O driver nâo esta na biblioteca");
+//        }catch(SQLException ex){
+//            JOptionPane.showMessageDialog(null, "Erro nas operações no banco de dados");
+//        }
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -162,6 +175,6 @@ public class NovoJogo extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNovoJogo;
-    private javax.swing.JTextField txtNovoJogo;
+    private javax.swing.JTextField txtPalavra;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,7 +12,7 @@ public class Conexao {
     
     private static final String url = "jdbc:mysql://localhost:3306/Forca";
     private static final String user = "root";
-    private static final String password = "root";
+    private static final String password = "";
     
     private static Connection conexao;
     

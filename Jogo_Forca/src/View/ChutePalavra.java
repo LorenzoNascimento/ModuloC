@@ -5,7 +5,7 @@
 package View;
 
 import DAO.JogoVariaveis;
-import DAO.JogoVariavel;
+import Model.JogoVariavel;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
