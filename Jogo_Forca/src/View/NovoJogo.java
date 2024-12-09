@@ -1,9 +1,8 @@
 package View;
 
-import com.mysql.cj.xdevapi.Statement;
-import com.sun.jdi.connect.spi.Connection;
-import javax.swing.JOptionPane;
-import java.sql.DriverManager;
+import Model.JogoVariavel;
+
+
 
 /**
  *
@@ -69,18 +68,18 @@ public class NovoJogo extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNovoJogo)
-                    .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(153, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(71, 71, 71)
                 .addComponent(btnConfirmarPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(193, 193, 193))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(150, 150, 150)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblNovoJogo)
+                    .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,19 +114,14 @@ public class NovoJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPalavraActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
-//        try{
-//        Connection conn;
-//        Statement st;
-//        Class.forName("com.mysql.jdbc.Driver");
-//        conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/forca", "root","");
-//        st = conn.createStatement();
-//        executeUpdate("INSERT INTO forcapalavras VALUES(id,''" + txtPalavra.getText());
-//        JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso");
-//        }catch(ClassNotFoundException ex) {
-//            JOptionPane.showMessageDialog(null,"O driver nâo esta na biblioteca");
-//        }catch(SQLException ex){
-//            JOptionPane.showMessageDialog(null, "Erro nas operações no banco de dados");
-//        }
+            
+        JogoVariavel variaveis = new JogoVariavel();
+            variaveis.setPalavra(txtPalavra.getText());
+            ForcaInterface fi = new ForcaInterface();
+            fi.exportarPalavra(variaveis);
+            fi.setLocationRelativeTo(null);
+            fi.setVisible(true);
+            dispose();
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

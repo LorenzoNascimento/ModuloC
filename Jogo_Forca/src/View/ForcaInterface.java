@@ -4,6 +4,7 @@
  */
 package View;
 
+import Model.JogoVariavel;
 import View.NovoJogo;
 
 /**
@@ -18,7 +19,9 @@ public class ForcaInterface extends javax.swing.JFrame {
     public ForcaInterface() {
         initComponents();
     }
-
+public void exportarPalavra(JogoVariavel variavel){
+        lblPalavra.setText(variavel.getPalavra());
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
