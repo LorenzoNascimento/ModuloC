@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
 import Model.JogoVariavel;
@@ -9,7 +5,7 @@ import View.NovoJogo;
 
 /**
  *
- * @author Aluno
+ * @author Lorenzo
  */
 public class ForcaInterface extends javax.swing.JFrame {
 
@@ -162,7 +158,7 @@ public void exportarPalavra(JogoVariavel variavel){
     }//GEN-LAST:event_btnNuncaeumAdeusActionPerformed
 
     private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
-        //Botao para fechar a aba de criar novo jogo
+        //Abrir aba de novo jogo através do menu principal      
         NovoJogo novojogo = new NovoJogo();
         novojogo.setLocationRelativeTo(novojogo);
         novojogo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -173,7 +169,8 @@ public void exportarPalavra(JogoVariavel variavel){
     }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     private void btnChutePalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChutePalavraActionPerformed
-                ChutePalavra chutepalavra = new ChutePalavra();
+        //Abrir menu de chutar palavra da forca
+        ChutePalavra chutepalavra = new ChutePalavra();
         chutepalavra.setLocationRelativeTo(chutepalavra);
         chutepalavra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         chutepalavra.setVisible(true);
@@ -209,6 +206,8 @@ public void exportarPalavra(JogoVariavel variavel){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
+//abrir menu centralisado na tela
                 ForcaInterface frame = new ForcaInterface();
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);

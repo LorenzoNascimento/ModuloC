@@ -1,8 +1,5 @@
 package Model;
 
-import View.ChutePalavra;
-import java.io.FileWriter;
-
 /**
  *
  * @author Lorenzo
@@ -53,7 +50,5 @@ public class JogoVariavel {
     public void setLetras(char letras) {
         this.letras = letras;
     }
-
-
 
 }

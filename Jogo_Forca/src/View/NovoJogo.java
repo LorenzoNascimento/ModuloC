@@ -6,7 +6,7 @@ import Model.JogoVariavel;
 
 /**
  *
- * @author Aluno
+ * @author Lorenzo
  */
 public class NovoJogo extends javax.swing.JFrame {
 
@@ -114,7 +114,7 @@ public class NovoJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPalavraActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
-            
+            //Botao de CONFIRMAR PALAVRA DA FORCA
         JogoVariavel variaveis = new JogoVariavel();
             variaveis.setPalavra(txtPalavra.getText());
             ForcaInterface fi = new ForcaInterface();
@@ -125,7 +125,7 @@ public class NovoJogo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
-        NovoJogo.this.dispose();
+        NovoJogo.this.dispose(); //fechar menu de novo jogo
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     /**

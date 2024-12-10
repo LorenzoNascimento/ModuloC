@@ -1,17 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
 
-import DAO.JogoVariaveis;
 import Model.JogoVariavel;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author Aluno
+ * @author Lorenzo
  */
 public class ChutePalavra extends javax.swing.JFrame {
 
@@ -121,12 +114,12 @@ public class ChutePalavra extends javax.swing.JFrame {
     }//GEN-LAST:event_txtChuteActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
-        JogoVariavel variaveis = new JogoVariavel();
-        try {
-            variaveis.ChutePalavra(null, txtChute.getText());
-        } catch (Exception ex) {
-//            Logger.getLogger(JCadastro.class.getName()).log(Level.SEVERE, null, ex);
-        }        
+        JogoVariavel jv = new JogoVariavel();
+            if(jv.getPalavra() == txtChute.getText()){ //talvez mudando o jv.getPalavra por txtPalavra (algo parecido) talvez ele ache a palavra porque possivelmente a variavel esta vazia
+                System.out.println("DEU CERTO");
+            }
+            
+            
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     /**
