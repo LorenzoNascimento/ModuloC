@@ -123,6 +123,7 @@ public class NovoJogo extends javax.swing.JFrame {
             fi.setLocationRelativeTo(null);
             fi.setVisible(true);
             dispose();
+            System.out.println(variaveis.getPalavra());
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed

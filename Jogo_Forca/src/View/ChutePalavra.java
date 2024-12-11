@@ -16,13 +16,13 @@ public class ChutePalavra extends javax.swing.JFrame {
      */
     public ChutePalavra() {
         initComponents();
+
+        //
     }
-    
 
 //    public void exportarPalavra(JogoVariavel variavel){
 //        lblPalavra.setText(variavel.getPalavra());
 //}
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -122,16 +122,17 @@ public class ChutePalavra extends javax.swing.JFrame {
     }//GEN-LAST:event_txtChuteActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
-        JogoVariavel variaveis = new JogoVariavel();
-            variaveis.setChute(txtChute.getText());
-            ForcaInterface fi = new ForcaInterface();
-            fi.exportarPalavra(variaveis);
-        
-        
         JogoVariavel jv = new JogoVariavel();
-if(jv.getPalavra().equals(jv.getChute())){ 
-    JOptionPane.showMessageDialog(this, "FUNCIONOU");
-}       
+        jv.setChute(txtChute.getText());
+        jv.getChute();
+        System.out.println(jv.getPalavra());
+
+        //Comparar variavel da palavra com a do chute da pessoa para se for igual dar a palavra como certa
+        if (jv.getPalavra() == jv.getChute()) {
+            JOptionPane.showMessageDialog(this, "Você acertou!!");
+        } else if (jv.getPalavra() != jv.getChute()) {
+            JOptionPane.showMessageDialog(this, "Você errou");
+        }
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     /**

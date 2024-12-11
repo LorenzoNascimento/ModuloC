@@ -7,7 +7,7 @@ package Model;
 public class JogoVariavel {
    private String id;
    private String palavra;
-   private String chute = "a";
+   private String chute;
    private char letras;
    
     /**
