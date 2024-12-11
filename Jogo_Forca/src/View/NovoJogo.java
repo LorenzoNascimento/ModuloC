@@ -110,7 +110,8 @@ public class NovoJogo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPalavraActionPerformed
-        // TODO add your handling code here:
+
+        
     }//GEN-LAST:event_txtPalavraActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed

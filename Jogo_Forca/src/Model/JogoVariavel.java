@@ -7,8 +7,9 @@ package Model;
 public class JogoVariavel {
    private String id;
    private String palavra;
+   private String chute = "a";
    private char letras;
-
+   
     /**
      * @return the id
      */
@@ -49,6 +50,20 @@ public class JogoVariavel {
      */
     public void setLetras(char letras) {
         this.letras = letras;
+    }
+
+    /**
+     * @return the chute
+     */
+    public String getChute() {
+        return chute;
+    }
+
+    /**
+     * @param chute the chute to set
+     */
+    public void setChute(String chute) {
+        this.chute = chute;
     }
 
 }

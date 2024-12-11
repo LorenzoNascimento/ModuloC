@@ -1,6 +1,9 @@
 package View;
 
 import Model.JogoVariavel;
+import View.ForcaInterface;
+import javax.swing.JOptionPane;
+import View.NovoJogo;
 
 /**
  *
@@ -14,6 +17,11 @@ public class ChutePalavra extends javax.swing.JFrame {
     public ChutePalavra() {
         initComponents();
     }
+    
+
+//    public void exportarPalavra(JogoVariavel variavel){
+//        lblPalavra.setText(variavel.getPalavra());
+//}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,12 +122,16 @@ public class ChutePalavra extends javax.swing.JFrame {
     }//GEN-LAST:event_txtChuteActionPerformed
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
+        JogoVariavel variaveis = new JogoVariavel();
+            variaveis.setChute(txtChute.getText());
+            ForcaInterface fi = new ForcaInterface();
+            fi.exportarPalavra(variaveis);
+        
+        
         JogoVariavel jv = new JogoVariavel();
-            if(jv.getPalavra() == txtChute.getText()){ //talvez mudando o jv.getPalavra por txtPalavra (algo parecido) talvez ele ache a palavra porque possivelmente a variavel esta vazia
-                System.out.println("DEU CERTO");
-            }
-            
-            
+if(jv.getPalavra().equals(jv.getChute())){ 
+    JOptionPane.showMessageDialog(this, "FUNCIONOU");
+}       
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     /**

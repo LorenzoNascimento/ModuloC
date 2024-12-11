@@ -15,9 +15,13 @@ public class ForcaInterface extends javax.swing.JFrame {
     public ForcaInterface() {
         initComponents();
     }
-public void exportarPalavra(JogoVariavel variavel){
+
+    public void exportarPalavra(JogoVariavel variavel) {
         lblPalavra.setText(variavel.getPalavra());
-}
+    }
+    
+ 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -162,10 +166,10 @@ public void exportarPalavra(JogoVariavel variavel){
         NovoJogo novojogo = new NovoJogo();
         novojogo.setLocationRelativeTo(novojogo);
         novojogo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        novojogo.setVisible(true); 
-        
+        novojogo.setVisible(true);
+
 //        novojogo.("a");
-        
+
     }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     private void btnChutePalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChutePalavraActionPerformed
@@ -206,7 +210,7 @@ public void exportarPalavra(JogoVariavel variavel){
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                
+
 //abrir menu centralisado na tela
                 ForcaInterface frame = new ForcaInterface();
                 frame.setLocationRelativeTo(null);
