@@ -16,6 +16,7 @@ public class ForcaInterface extends javax.swing.JFrame {
         initComponents();
     }
 
+    //Exibir a palavra na tela
     public void exportarPalavra(JogoVariavel variavel) {
         lblPalavra.setText(variavel.getPalavra());
     }
