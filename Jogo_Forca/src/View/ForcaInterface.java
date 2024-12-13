@@ -38,9 +38,11 @@ public class ForcaInterface extends javax.swing.JFrame {
         btnChuteLetra = new javax.swing.JButton();
         btnNovoJogo = new javax.swing.JButton();
         btnChutePalavra = new javax.swing.JButton();
-        BoxLetra = new javax.swing.JComboBox<>();
+        cbLetra = new javax.swing.JComboBox<>();
         btnNuncaeumAdeus = new javax.swing.JButton();
         lblPalavra = new javax.swing.JLabel();
+        lblLetra = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         btnChuteLetra1.setText("Chutar letra");
         btnChuteLetra1.addActionListener(new java.awt.event.ActionListener() {
@@ -81,8 +83,13 @@ public class ForcaInterface extends javax.swing.JFrame {
             }
         });
 
-        BoxLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" }));
-        BoxLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "-" }));
+        cbLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbLetra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbLetraActionPerformed(evt);
+            }
+        });
 
         btnNuncaeumAdeus.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         btnNuncaeumAdeus.setText("NUNCA É UM ADEUS!?");
@@ -94,6 +101,8 @@ public class ForcaInterface extends javax.swing.JFrame {
 
         lblPalavra.setText("teste");
 
+        jLabel1.setText("Letra chutada:");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -103,11 +112,15 @@ public class ForcaInterface extends javax.swing.JFrame {
                 .addComponent(btnNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnChuteLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnChuteLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BoxLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblLetra)
+                            .addComponent(cbLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(39, 39, 39)
                 .addComponent(btnChutePalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110))
@@ -121,12 +134,16 @@ public class ForcaInterface extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(122, 122, 122)
                 .addComponent(lblPalavra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLetra)
+                    .addComponent(jLabel1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChuteLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChutePalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BoxLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
@@ -147,7 +164,14 @@ public class ForcaInterface extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChuteLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChuteLetraActionPerformed
-        // TODO add your handling code here:
+       /* ideia de como fazer a comparação de letras da palavra
+        transferir a palavra da VARIAVEL PALAVRA para uma outra variavel CHAR para criar algo para contar a quantia de letras
+        que a palavra contem, se o numero de LETRAS QUE FOR COMPARADA ultilizando um IF, for VERDADEIRA for IGUAL A QUANTIA DE LETRAS 
+        da PALAVRA vai contra como palavra acertada +1 win em uma variavel que mandara este status para o banco de dados que podera
+        ser exibido no canto do menu inicial*/
+       
+       lblLetra.setText(cbLetra.getSelectedItem().toString()); //Exibir no Label da letra a letra escolhida
+        
     }//GEN-LAST:event_btnChuteLetraActionPerformed
 
     private void btnChuteLetra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChuteLetra1ActionPerformed
@@ -168,8 +192,8 @@ public class ForcaInterface extends javax.swing.JFrame {
         novojogo.setLocationRelativeTo(novojogo);
         novojogo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         novojogo.setVisible(true);
+        ForcaInterface.this.dispose();
 
-//        novojogo.("a");
 
     }//GEN-LAST:event_btnNovoJogoActionPerformed
 
@@ -180,6 +204,12 @@ public class ForcaInterface extends javax.swing.JFrame {
         chutepalavra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         chutepalavra.setVisible(true);
     }//GEN-LAST:event_btnChutePalavraActionPerformed
+
+    private void cbLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLetraActionPerformed
+//        JogoVariavel jv = new JogoVariavel();
+//            jv.setPalavra(txtPalavra.getText());
+//            jv.
+    }//GEN-LAST:event_cbLetraActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,14 +251,16 @@ public class ForcaInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> BoxLetra;
     private javax.swing.JButton btnChuteLetra;
     private javax.swing.JButton btnChuteLetra1;
     private javax.swing.JButton btnChuteLetra2;
     private javax.swing.JButton btnChutePalavra;
     private javax.swing.JButton btnNovoJogo;
     private javax.swing.JButton btnNuncaeumAdeus;
+    private javax.swing.JComboBox<String> cbLetra;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel lblLetra;
     private javax.swing.JLabel lblPalavra;
     // End of variables declaration//GEN-END:variables
 }
