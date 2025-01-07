@@ -14,7 +14,7 @@ public class ConexaoMySQL {
     //Variaveis para os detalhes de conexão
     private static final String url = "jdbc:mysql://localhost:3306/pub_bar";
     private static final String user = "root";
-    private static final String password = "Lorenzo_98738038";
+    private static final String password = "";
 
     //Metodo principal para testar a conexão
     public static void main(String[] args) {

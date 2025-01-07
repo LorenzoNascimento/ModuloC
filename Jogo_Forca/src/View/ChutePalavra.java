@@ -129,7 +129,7 @@ public class ChutePalavra extends javax.swing.JFrame {
         System.out.println(jv.getPalavra());
 
         //Comparar variavel da palavra com a do chute da pessoa para se for igual dar a palavra como certa
-        if (jv.getPalavra().equals(jv.getChute())){
+        if (jv.getPalavra().equals(jv.getChute().toUpperCase())){
             JOptionPane.showMessageDialog(this, "Você acertou!!");
         } else {
             JOptionPane.showMessageDialog(this, "Você errou");

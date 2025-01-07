@@ -2,6 +2,7 @@ package View;
 
 import Model.JogoVariavel;
 import View.NovoJogo;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -62,7 +63,7 @@ public class ForcaInterface extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(187, 187, 187));
 
-        btnChuteLetra.setText("Chutar letra");
+        btnChuteLetra.setText("Chutar palavra");
         btnChuteLetra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnChuteLetraActionPerformed(evt);
@@ -83,7 +84,7 @@ public class ForcaInterface extends javax.swing.JFrame {
             }
         });
 
-        cbLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "-" }));
+        cbLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Algoritmo", "Código", "Variável", "Função", "Loop", "Depuração", "Compilador", "Framework", "Linguagem", "Banco de dados" }));
         cbLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         cbLetra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,22 +112,28 @@ public class ForcaInterface extends javax.swing.JFrame {
                 .addContainerGap(110, Short.MAX_VALUE)
                 .addComponent(btnNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnChuteLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(39, 39, 39))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLetra)
-                            .addComponent(cbLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(39, 39, 39)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(185, 185, 185)
+                                .addComponent(lblLetra))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(12, 12, 12)
+                                .addComponent(btnChuteLetra)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)))
                 .addComponent(btnChutePalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(110, 110, 110))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(378, 378, 378)
-                .addComponent(lblPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -153,7 +160,7 @@ public class ForcaInterface extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,8 +177,15 @@ public class ForcaInterface extends javax.swing.JFrame {
         da PALAVRA vai contra como palavra acertada +1 win em uma variavel que mandara este status para o banco de dados que podera
         ser exibido no canto do menu inicial*/
        
-       lblLetra.setText(cbLetra.getSelectedItem().toString()); //Exibir no Label da letra a letra escolhida
-        
+       JogoVariavel jv = new JogoVariavel();
+       lblLetra.setText(cbLetra.getSelectedItem().toString()); //Exibir no Label da palavra a palavra escolhida na tela
+       
+       /* Chutar a palavra apartir do botâo de chute */
+        if (jv.getPalavra().equals(cbLetra.getSelectedItem().toString().toUpperCase())){
+            JOptionPane.showMessageDialog(this, "Você acertou!!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Você errou");
+        }
     }//GEN-LAST:event_btnChuteLetraActionPerformed
 
     private void btnChuteLetra1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChuteLetra1ActionPerformed

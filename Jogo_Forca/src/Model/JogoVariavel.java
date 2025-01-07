@@ -6,7 +6,22 @@ package Model;
  */
 public class JogoVariavel {
    private String id;
-   private String palavra;
+/* Palavras para o jogo da forca:
+   
+ - ALGORITIMO
+ - CODIGO
+ - VARIAVEL
+ - FUNÇAO
+ - LOOP
+ - DEPURAÇAO
+ - JAVA
+ - FRAMEWORK
+ - LINGUAGEM
+ - BANCO DE DADOS
+   
+*/
+   
+   private String palavra = "LOOP";
    private String chute;
    private char letras;
    
