@@ -128,7 +128,7 @@ public class Login extends javax.swing.JFrame {
 
         UsuarioDAO ud = new UsuarioDAO();
 
-        //Método de salvar o nome e usuario no banco de dados
+        //Método de cadastrar o jogador na tabela
         ud.cadastrarJogador(u);
 
         Login.this.dispose();

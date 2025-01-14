@@ -269,7 +269,6 @@ public class ForcaInterface extends javax.swing.JFrame {
             public void run() {
 
                 //abrir atela de login
-                ForcaInterface frame = new ForcaInterface();
                 Login jl = new Login();
 
                 //Centralizar na tela e deixar visivel
