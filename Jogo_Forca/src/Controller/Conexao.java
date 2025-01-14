@@ -9,25 +9,28 @@ import java.sql.DriverManager;
  * @author Lorenzo
  */
 public class Conexao {
-    
-    private static final String url = "jdbc:mysql://localhost:3306/Forca";
-    private static final String user = "root";
-    private static final String password = "";
-    
-    private static Connection conexao;
-    
-    public static Connection getConexao(){
-        if(conexao == null) {
-            try{
-                //Carregar driver JBDC para mysql
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                conexao = DriverManager.getConnection(url,user,password);
-                conexao.setAutoCommit(false);
-            }catch(ClassNotFoundException | SQLException e){
-                System.out.println("Erro ao conectar ao banco de dados" + e.getMessage());
-                e.printStackTrace();
+
+    //Conectar com o MySQL
+    private static final String url = "jdbc:mysql://localhost:3306/forca"; //Localização da tabela
+    private static final String user = "root"; //Usuario
+    private static final String password = "root"; //Senha
+
+    public static Connection conn; 
+
+    public static Connection getConexao() {
+        
+        //Tentar se conectar com o MySLQ
+        try {
+            if (conn == null) {
+
+                conn = DriverManager.getConnection(url, user, password);
+                return conn;
+            } else {
+                return conn;
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
         }
-        return conexao;
     }
 }

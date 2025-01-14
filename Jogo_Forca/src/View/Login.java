@@ -1,12 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package View;
+
+import DAO.UsuarioDAO;
+import Model.Usuario;
 
 /**
  *
- * @author Aluno
+ * @author Lorenzo
  */
 public class Login extends javax.swing.JFrame {
 
@@ -26,21 +25,119 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Senha = new javax.swing.JPanel();
+        jlblNome = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        jlblUsuario = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        btnConfirmar = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        Senha.setBackground(new java.awt.Color(98, 98, 98));
+
+        jlblNome.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jlblNome.setText("Nome:");
+
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+
+        jlblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jlblUsuario.setText("Usuario:");
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setText("LOGIN");
+
+        btnConfirmar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnConfirmar.setText("Confirmar");
+        btnConfirmar.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout SenhaLayout = new javax.swing.GroupLayout(Senha);
+        Senha.setLayout(SenhaLayout);
+        SenhaLayout.setHorizontalGroup(
+            SenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SenhaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addGroup(SenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jlblUsuario)
+                    .addComponent(jlblNome))
+                .addGap(18, 18, 18)
+                .addGroup(SenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNome)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(40, 40, 40))
+            .addGroup(SenhaLayout.createSequentialGroup()
+                .addGap(160, 160, 160)
+                .addComponent(jLabel1)
+                .addContainerGap(160, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SenhaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnConfirmar)
+                .addGap(135, 135, 135))
+        );
+        SenhaLayout.setVerticalGroup(
+            SenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(SenhaLayout.createSequentialGroup()
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(80, 80, 80)
+                .addGroup(SenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jlblNome)
+                    .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(SenhaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlblUsuario))
+                .addGap(65, 65, 65)
+                .addComponent(btnConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(Senha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(Senha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+        //Setar o nome e usuario em suas variaveis
+        Usuario u = new Usuario();
+        u.setNome(txtNome.getText());
+        u.setUsuario(txtUsuario.getText());
+
+        UsuarioDAO ud = new UsuarioDAO();
+
+        //Método de salvar o nome e usuario no banco de dados
+        ud.cadastrarJogador(u);
+
+        Login.this.dispose();
+
+        //Após fechar a tela de login abrir a tela principal do jogo
+        ForcaInterface fi = new ForcaInterface();
+        fi.setLocationRelativeTo(null);
+        fi.setVisible(true);
+    }//GEN-LAST:event_btnConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +175,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Senha;
+    private javax.swing.JButton btnConfirmar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jlblNome;
+    private javax.swing.JLabel jlblUsuario;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
 }

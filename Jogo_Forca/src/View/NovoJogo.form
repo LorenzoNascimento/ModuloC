@@ -58,10 +58,18 @@
                   <EmptySpace min="-2" pref="193" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblNovoJogo" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPalavra" min="-2" pref="400" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNovoJogo" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtPalavra" min="-2" pref="400" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="cbInicio" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="153" max="32767" attributes="0"/>
               </Group>
@@ -70,7 +78,9 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbInicio" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                   <Component id="lblNovoJogo" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="txtPalavra" min="-2" pref="35" max="-2" attributes="0"/>
@@ -119,6 +129,117 @@
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCancelarActionPerformed"/>
           </Events>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cbInicio">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="97">
+                <StringItem index="0" value="Abstra&#xe7;ao"/>
+                <StringItem index="1" value="Algoritmo"/>
+                <StringItem index="2" value="API"/>
+                <StringItem index="3" value="Arquitetura"/>
+                <StringItem index="4" value="Arquivo"/>
+                <StringItem index="5" value="Array"/>
+                <StringItem index="6" value="ArrayList"/>
+                <StringItem index="7" value="Banco de Dados"/>
+                <StringItem index="8" value="BigDecimal"/>
+                <StringItem index="9" value="Branch"/>
+                <StringItem index="10" value="Classe"/>
+                <StringItem index="11" value="ClassCastException"/>
+                <StringItem index="12" value="Cliente"/>
+                <StringItem index="13" value="Compila&#xe7;ao"/>
+                <StringItem index="14" value="Compilador"/>
+                <StringItem index="15" value="Commit"/>
+                <StringItem index="16" value="Conexao"/>
+                <StringItem index="17" value="Construtor"/>
+                <StringItem index="18" value="Console"/>
+                <StringItem index="19" value="Condicional"/>
+                <StringItem index="20" value="Debug"/>
+                <StringItem index="21" value="Deserialization"/>
+                <StringItem index="22" value="Enum"/>
+                <StringItem index="23" value="Entrada"/>
+                <StringItem index="24" value="Exce&#xe7;ao"/>
+                <StringItem index="25" value="Eclipse"/>
+                <StringItem index="26" value="Exce&#xe7;ao"/>
+                <StringItem index="27" value="File"/>
+                <StringItem index="28" value="Framework"/>
+                <StringItem index="29" value="Fun&#xe7;ao"/>
+                <StringItem index="30" value="Git"/>
+                <StringItem index="31" value="Gradle"/>
+                <StringItem index="32" value="HashMap"/>
+                <StringItem index="33" value="Heran&#xe7;a"/>
+                <StringItem index="34" value="Hibernate"/>
+                <StringItem index="35" value="IDE"/>
+                <StringItem index="36" value="Instancia"/>
+                <StringItem index="37" value="Interface"/>
+                <StringItem index="38" value="JDK"/>
+                <StringItem index="39" value="Java"/>
+                <StringItem index="40" value="JavaFX"/>
+                <StringItem index="41" value="JPA"/>
+                <StringItem index="42" value="JSP"/>
+                <StringItem index="43" value="JUnit"/>
+                <StringItem index="44" value="JSON"/>
+                <StringItem index="45" value="Lambda"/>
+                <StringItem index="46" value="List"/>
+                <StringItem index="47" value="LinkedList"/>
+                <StringItem index="48" value="Loop"/>
+                <StringItem index="49" value="Map"/>
+                <StringItem index="50" value="Maven"/>
+                <StringItem index="51" value="Merge"/>
+                <StringItem index="52" value="Microservices"/>
+                <StringItem index="53" value="Metodo"/>
+                <StringItem index="54" value="NullPointerException"/>
+                <StringItem index="55" value="Object"/>
+                <StringItem index="56" value="Objeto"/>
+                <StringItem index="57" value="POO"/>
+                <StringItem index="58" value="Parametro"/>
+                <StringItem index="59" value="Persistancia"/>
+                <StringItem index="60" value="Polimorfismo"/>
+                <StringItem index="61" value="Passiencia"/>
+                <StringItem index="62" value="Performance"/>
+                <StringItem index="63" value="Pull"/>
+                <StringItem index="64" value="Recursao"/>
+                <StringItem index="65" value="Refatora&#xe7;ao"/>
+                <StringItem index="66" value="Reflection"/>
+                <StringItem index="67" value="Repositario"/>
+                <StringItem index="68" value="Retorno"/>
+                <StringItem index="69" value="REST"/>
+                <StringItem index="70" value="Scala"/>
+                <StringItem index="71" value="Set"/>
+                <StringItem index="72" value="Sincroniza&#xe7;ao"/>
+                <StringItem index="73" value="Servidor"/>
+                <StringItem index="74" value="Servlet"/>
+                <StringItem index="75" value="Sintaxe"/>
+                <StringItem index="76" value="SQL"/>
+                <StringItem index="77" value="Stack"/>
+                <StringItem index="78" value="Stream"/>
+                <StringItem index="79" value="String"/>
+                <StringItem index="80" value="Spring"/>
+                <StringItem index="81" value="Swing"/>
+                <StringItem index="82" value="Teste"/>
+                <StringItem index="83" value="TestUnit"/>
+                <StringItem index="84" value="Thread"/>
+                <StringItem index="85" value="Tipagem"/>
+                <StringItem index="86" value="Tomcat"/>
+                <StringItem index="87" value="Vari&#xe1;vel"/>
+                <StringItem index="88" value="WebSocket"/>
+                <StringItem index="89" value="XML"/>
+                <StringItem index="90" value="Queue"/>
+                <StringItem index="91" value="Socket"/>
+                <StringItem index="92" value="Serialization"/>
+                <StringItem index="93" value="SQLException"/>
+                <StringItem index="94" value="Stack"/>
+                <StringItem index="95" value="Reflection"/>
+                <StringItem index="96" value="Maven"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbInicioActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

@@ -32,6 +32,7 @@ public class NovoJogo extends javax.swing.JFrame {
         lblNovoJogo = new javax.swing.JLabel();
         btnConfirmarPalavra = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        cbInicio = new javax.swing.JComboBox<>();
 
         jButton1.setText("jButton1");
 
@@ -64,6 +65,13 @@ public class NovoJogo extends javax.swing.JFrame {
             }
         });
 
+        cbInicio.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abstraçao", "Algoritmo", "API", "Arquitetura", "Arquivo", "Array", "ArrayList", "Banco de Dados", "BigDecimal", "Branch", "Classe", "ClassCastException", "Cliente", "Compilaçao", "Compilador", "Commit", "Conexao", "Construtor", "Console", "Condicional", "Debug", "Deserialization", "Enum", "Entrada", "Exceçao", "Eclipse", "Exceçao", "File", "Framework", "Funçao", "Git", "Gradle", "HashMap", "Herança", "Hibernate", "IDE", "Instancia", "Interface", "JDK", "Java", "JavaFX", "JPA", "JSP", "JUnit", "JSON", "Lambda", "List", "LinkedList", "Loop", "Map", "Maven", "Merge", "Microservices", "Metodo", "NullPointerException", "Object", "Objeto", "POO", "Parametro", "Persistancia", "Polimorfismo", "Passiencia", "Performance", "Pull", "Recursao", "Refatoraçao", "Reflection", "Repositario", "Retorno", "REST", "Scala", "Set", "Sincronizaçao", "Servidor", "Servlet", "Sintaxe", "SQL", "Stack", "Stream", "String", "Spring", "Swing", "Teste", "TestUnit", "Thread", "Tipagem", "Tomcat", "Variável", "WebSocket", "XML", "Queue", "Socket", "Serialization", "SQLException", "Stack", "Reflection", "Maven" }));
+        cbInicio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbInicioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,16 +83,23 @@ public class NovoJogo extends javax.swing.JFrame {
                 .addComponent(btnConfirmarPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(193, 193, 193))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNovoJogo)
-                    .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblNovoJogo)
+                            .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(cbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(153, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(105, 105, 105)
+                .addContainerGap()
+                .addComponent(cbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
                 .addComponent(lblNovoJogo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -109,27 +124,31 @@ public class NovoJogo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPalavraActionPerformed
-
-        
-    }//GEN-LAST:event_txtPalavraActionPerformed
-
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
-            //Botao de CONFIRMAR PALAVRA DA FORCA
-        JogoVariavel variaveis = new JogoVariavel();
-            variaveis.setPalavra(txtPalavra.getText());
             ForcaInterface fi = new ForcaInterface();
-            fi.exportarPalavra(variaveis);
+            
+            //Nao esta funcionando pois a variavel nao salva e vira null
+            JogoVariavel jv = new JogoVariavel();
+            jv.setPalavraCb(cbInicio.getSelectedItem().toString().toUpperCase());
+            System.out.println(jv.getPalavraCb());
+                    
             fi.setLocationRelativeTo(null);
             fi.setVisible(true);
             dispose();
-            System.out.println(variaveis.getPalavra());
-            NovoJogo.this.dispose();
+            NovoJogo.this.dispose(); //fechar a tela de novo jogo após confirmar
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
         NovoJogo.this.dispose(); //fechar menu de novo jogo
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void txtPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPalavraActionPerformed
+
+    }//GEN-LAST:event_txtPalavraActionPerformed
+
+    private void cbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbInicioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbInicioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -169,6 +188,7 @@ public class NovoJogo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar;
     private javax.swing.JButton btnConfirmarPalavra;
+    private javax.swing.JComboBox<String> cbInicio;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNovoJogo;

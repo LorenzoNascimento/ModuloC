@@ -1,9 +1,7 @@
 package View;
 
 import Model.JogoVariavel;
-import View.ForcaInterface;
 import javax.swing.JOptionPane;
-import View.NovoJogo;
 
 /**
  *
@@ -114,7 +112,7 @@ public class ChutePalavra extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCancelarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarPalavraActionPerformed
-        ChutePalavra.this.dispose();
+        ChutePalavra.this.dispose(); //Fechar tela de chute palavra com o botao de fechar
     }//GEN-LAST:event_btnCancelarPalavraActionPerformed
 
     private void txtChuteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtChuteActionPerformed
@@ -123,18 +121,27 @@ public class ChutePalavra extends javax.swing.JFrame {
 
     private void btnConfirmarPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarPalavraActionPerformed
         JogoVariavel jv = new JogoVariavel();
+        
+        //Salvar oque é escrito na area de chute em uma variavel
         jv.setChute(txtChute.getText());
         
-        //testar
-        System.out.println(jv.getPalavra());
-
-        //Comparar variavel da palavra com a do chute da pessoa para se for igual dar a palavra como certa
-        if (jv.getPalavra().equals(jv.getChute().toUpperCase())){
-            JOptionPane.showMessageDialog(this, "Você acertou!!");
+        //Comparar variavel da palavraCb com a do chute, se for igual a palavra irá aparecer que está certo
+        if (jv.getPalavraCb().toUpperCase().equals(jv.getChute().toUpperCase())){
+            JOptionPane.showMessageDialog(this, "Parabens, você acertou!! \tA palavra éra '" + jv.getPalavraCb().toUpperCase() + "'");
+             ChutePalavra.this.dispose(); //fechar a aba de chute quando acertar a palavra
+             
         } else {
-            JOptionPane.showMessageDialog(this, "Você errou");
+            jv.diminuirTentativas(); //Diminuir as tentativas
+            
+            if(jv.getTentativaLabel() == 0){
+                JOptionPane.showMessageDialog(this, "Você perdeu. \tA palavra correta éra: " + "'" + jv.getPalavraCb().toUpperCase() + "'"); //Se as tentativas forem = 0, voce perdeu o jogo
+                ChutePalavra.this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Voce possui " + jv.getTentativaLabel() + " tentativas."); //Mostrar quantia de tentativas
         }
-        ChutePalavra.this.dispose();
+            
+        }
+       
     }//GEN-LAST:event_btnConfirmarPalavraActionPerformed
 
     /**

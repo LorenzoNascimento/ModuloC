@@ -3,6 +3,8 @@ package View;
 import Model.JogoVariavel;
 import View.NovoJogo;
 import javax.swing.JOptionPane;
+import View.Login;
+import static javax.swing.WindowConstants.DISPOSE_ON_CLOSE;
 
 /**
  *
@@ -15,15 +17,10 @@ public class ForcaInterface extends javax.swing.JFrame {
      */
     public ForcaInterface() {
         initComponents();
+
     }
 
     //Exibir a palavra na tela
-    public void exportarPalavra(JogoVariavel variavel) {
-        lblPalavra.setText(variavel.getPalavra());
-    }
-    
- 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,15 +32,16 @@ public class ForcaInterface extends javax.swing.JFrame {
 
         btnChuteLetra1 = new javax.swing.JButton();
         btnChuteLetra2 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        lblCorpo = new javax.swing.JPanel();
         btnChuteLetra = new javax.swing.JButton();
         btnNovoJogo = new javax.swing.JButton();
         btnChutePalavra = new javax.swing.JButton();
-        cbLetra = new javax.swing.JComboBox<>();
+        cbPalavra = new javax.swing.JComboBox<>();
         btnNuncaeumAdeus = new javax.swing.JButton();
-        lblPalavra = new javax.swing.JLabel();
         lblLetra = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        imagem = new javax.swing.JLabel();
 
         btnChuteLetra1.setText("Chutar letra");
         btnChuteLetra1.addActionListener(new java.awt.event.ActionListener() {
@@ -61,7 +59,7 @@ public class ForcaInterface extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(187, 187, 187));
+        lblCorpo.setBackground(new java.awt.Color(187, 187, 187));
 
         btnChuteLetra.setText("Chutar palavra");
         btnChuteLetra.addActionListener(new java.awt.event.ActionListener() {
@@ -84,11 +82,11 @@ public class ForcaInterface extends javax.swing.JFrame {
             }
         });
 
-        cbLetra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Algoritmo", "Código", "Variável", "Função", "Loop", "Depuração", "Compilador", "Framework", "Linguagem", "Banco de dados" }));
-        cbLetra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        cbLetra.addActionListener(new java.awt.event.ActionListener() {
+        cbPalavra.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Abstraçao", "Algoritmo", "API", "Arquitetura", "Arquivo", "Array", "ArrayList", "Banco de Dados", "BigDecimal", "Branch", "Classe", "ClassCastException", "Cliente", "Compilaçao", "Compilador", "Commit", "Conexao", "Construtor", "Console", "Condicional", "Debug", "Deserialization", "Enum", "Entrada", "Exceçao", "Eclipse", "Exceçao", "File", "Framework", "Funçao", "Git", "Gradle", "HashMap", "Herança", "Hibernate", "IDE", "Instancia", "Interface", "JDK", "Java", "JavaFX", "JPA", "JSP", "JUnit", "JSON", "Lambda", "List", "LinkedList", "Loop", "Map", "Maven", "Merge", "Microservices", "Metodo", "NullPointerException", "Object", "Objeto", "POO", "Parametro", "Persistancia", "Polimorfismo", "Passiencia", "Performance", "Pull", "Recursao", "Refatoraçao", "Reflection", "Repositario", "Retorno", "REST", "Scala", "Set", "Sincronizaçao", "Servidor", "Servlet", "Sintaxe", "SQL", "Stack", "Stream", "String", "Spring", "Swing", "Teste", "TestUnit", "Thread", "Tipagem", "Tomcat", "Variável", "WebSocket", "XML", "Queue", "Socket", "Serialization", "SQLException", "Stack", "Reflection", "Maven" }));
+        cbPalavra.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        cbPalavra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbLetraActionPerformed(evt);
+                cbPalavraActionPerformed(evt);
             }
         });
 
@@ -100,57 +98,67 @@ public class ForcaInterface extends javax.swing.JFrame {
             }
         });
 
-        lblPalavra.setText("teste");
-
         jLabel1.setText("Letra chutada:");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setText("JOGO DA FORCA");
+
+        imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/View/forca.png"))); // NOI18N
+
+        javax.swing.GroupLayout lblCorpoLayout = new javax.swing.GroupLayout(lblCorpo);
+        lblCorpo.setLayout(lblCorpoLayout);
+        lblCorpoLayout.setHorizontalGroup(
+            lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCorpoLayout.createSequentialGroup()
+                .addContainerGap(111, Short.MAX_VALUE)
                 .addComponent(btnNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lblCorpoLayout.createSequentialGroup()
                         .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(39, 39, 39))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(lblCorpoLayout.createSequentialGroup()
+                        .addGroup(lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(lblCorpoLayout.createSequentialGroup()
                                 .addGap(185, 185, 185)
                                 .addComponent(lblLetra))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(lblCorpoLayout.createSequentialGroup()
                                 .addGap(12, 12, 12)
                                 .addComponent(btnChuteLetra)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)))
+                                .addComponent(cbPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)))
                 .addComponent(btnChutePalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(110, 110, 110))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(378, 378, 378)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(111, 111, 111))
+            .addGroup(lblCorpoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imagem)
+                .addGap(89, 89, 89)
+                .addGroup(lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(lblPalavra)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+        lblCorpoLayout.setVerticalGroup(
+            lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, lblCorpoLayout.createSequentialGroup()
+                .addGroup(lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(lblCorpoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(imagem))
+                    .addGroup(lblCorpoLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                .addGroup(lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLetra)
                     .addComponent(jLabel1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(lblCorpoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnChuteLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnChutePalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNovoJogo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbLetra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbPalavra, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(41, 41, 41)
                 .addComponent(btnNuncaeumAdeus, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50))
@@ -160,31 +168,36 @@ public class ForcaInterface extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblCorpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblCorpo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChuteLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChuteLetraActionPerformed
-       /* ideia de como fazer a comparação de letras da palavra
-        transferir a palavra da VARIAVEL PALAVRA para uma outra variavel CHAR para criar algo para contar a quantia de letras
-        que a palavra contem, se o numero de LETRAS QUE FOR COMPARADA ultilizando um IF, for VERDADEIRA for IGUAL A QUANTIA DE LETRAS 
-        da PALAVRA vai contra como palavra acertada +1 win em uma variavel que mandara este status para o banco de dados que podera
-        ser exibido no canto do menu inicial*/
-       
-       JogoVariavel jv = new JogoVariavel();
-       lblLetra.setText(cbLetra.getSelectedItem().toString()); //Exibir no Label da palavra a palavra escolhida na tela
-       
-       /* Chutar a palavra apartir do botâo de chute */
-        if (jv.getPalavra().equals(cbLetra.getSelectedItem().toString().toUpperCase())){
-            JOptionPane.showMessageDialog(this, "Você acertou!!");
+
+        //Exibir no Label da palavra selecionada na tela
+        JogoVariavel jv = new JogoVariavel();
+        lblLetra.setText(cbPalavra.getSelectedItem().toString());
+
+        // Verificar se a palavra escolhida no comboBox é igual a palavra da forca para saber se acertou ou nâo
+        if (jv.getPalavraCb().toUpperCase().equals(cbPalavra.getSelectedItem().toString().toUpperCase())) {
+            JOptionPane.showMessageDialog(this, "Parabens, você acertou!! \tA palavra é '" + jv.getPalavraCb().toUpperCase() + "'");
+
         } else {
-            JOptionPane.showMessageDialog(this, "Você errou");
+            jv.diminuirTentativas(); //Diminui as tentativas da pessoa
+
+            //Se as tentativas forem = 0, você perde o jogo
+            if (jv.getTentativaLabel() == 0) {
+                JOptionPane.showMessageDialog(this, "Voce perdeu \tA palavra correta éra: " + "'" + jv.getPalavraCb().toUpperCase() + "'");
+                ForcaInterface.this.dispose();
+            } else {
+                JOptionPane.showMessageDialog(this, "Voce possui " + jv.getTentativaLabel() + " tentativas."); //Mostrar quantia de tentativas você possui
+            }
         }
     }//GEN-LAST:event_btnChuteLetraActionPerformed
 
@@ -200,30 +213,29 @@ public class ForcaInterface extends javax.swing.JFrame {
         ForcaInterface.this.dispose();
     }//GEN-LAST:event_btnNuncaeumAdeusActionPerformed
 
-    private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
-        //Abrir aba de novo jogo através do menu principal      
-        NovoJogo novojogo = new NovoJogo();
-        novojogo.setLocationRelativeTo(novojogo);
-        novojogo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        novojogo.setVisible(true);
-        ForcaInterface.this.dispose();
-
-
-    }//GEN-LAST:event_btnNovoJogoActionPerformed
-
     private void btnChutePalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChutePalavraActionPerformed
-        //Abrir menu de chutar palavra da forca
+
+        //Abrir menu de chutar palavra da forca apartir do menu principal
         ChutePalavra chutepalavra = new ChutePalavra();
         chutepalavra.setLocationRelativeTo(chutepalavra);
         chutepalavra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         chutepalavra.setVisible(true);
     }//GEN-LAST:event_btnChutePalavraActionPerformed
 
-    private void cbLetraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbLetraActionPerformed
-//        JogoVariavel jv = new JogoVariavel();
-//            jv.setPalavra(txtPalavra.getText());
-//            jv.
-    }//GEN-LAST:event_cbLetraActionPerformed
+    private void cbPalavraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbPalavraActionPerformed
+
+
+    }//GEN-LAST:event_cbPalavraActionPerformed
+
+    private void btnNovoJogoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNovoJogoActionPerformed
+
+        //Abrir aba de novo jogo através do botão do menu principal
+        NovoJogo novojogo = new NovoJogo();
+        novojogo.setLocationRelativeTo(novojogo);
+        novojogo.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        novojogo.setVisible(true);
+        ForcaInterface.this.dispose();
+    }//GEN-LAST:event_btnNovoJogoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,10 +268,15 @@ public class ForcaInterface extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
 
-//abrir menu centralisado na tela
+                //abrir atela de login
                 ForcaInterface frame = new ForcaInterface();
-                frame.setLocationRelativeTo(null);
-                frame.setVisible(true);
+                Login jl = new Login();
+
+                //Centralizar na tela e deixar visivel
+                jl.setLocationRelativeTo(jl);
+                jl.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+                jl.setVisible(true);
+
             }
         });
     }
@@ -271,10 +288,11 @@ public class ForcaInterface extends javax.swing.JFrame {
     private javax.swing.JButton btnChutePalavra;
     private javax.swing.JButton btnNovoJogo;
     private javax.swing.JButton btnNuncaeumAdeus;
-    private javax.swing.JComboBox<String> cbLetra;
+    private javax.swing.JComboBox<String> cbPalavra;
+    private javax.swing.JLabel imagem;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel lblCorpo;
     private javax.swing.JLabel lblLetra;
-    private javax.swing.JLabel lblPalavra;
     // End of variables declaration//GEN-END:variables
 }
